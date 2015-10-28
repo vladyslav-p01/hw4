@@ -21,3 +21,5 @@
 7. Use the git flow from the lesson#2.
 
 8. `After all the cutting points`, add link of your homework to the google doc.
+
+P.S. Set yourself config options to the config/config.php.dist and rename him on config/config.php
