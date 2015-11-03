@@ -3,7 +3,7 @@
 namespace Layer\Manager;
 
 /**
- * Interface ManagerInterface
+ * Class AbstractManager
  * @package Layer\Manager
  */
 interface ManagerInterface
@@ -14,6 +14,7 @@ interface ManagerInterface
      * @return mixed
      */
     public function insert($entity);
+
 
     /**
      * Update exist entity data in the DB

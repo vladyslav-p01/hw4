@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{{ dump(vendors) }}
+    <form method="get" action="/">
+        <fieldset>
+            <legend align="center">Enter information about the device</legend>
+            <label for="vendor">vendor</label>
+            <select id="vendor" name="vendor">
+                {% for vendorArray in vendors %}
+                    {% for vendor in vendorArray %}
+                        <option value="{{ vendor.id }}"> {{ vendor.name }}</option>
+                    {% endfor %}
+                {% endfor %}
+            </select>
+            <label for="deviceModel">Device model</label>
+            <input type="text" name="deviceModel" id="deviceModel">
+            <label for="screenSize">screenSize</label>
+            <input type="text" name="screenSize" id="screenSize">
+            <input type="submit" value="Send">
+        </fieldset>
+        <input type="hidden" name="controller" value="device">
+        <input type="hidden" name="action" value="addDevice">
+    </form>
+
+</body>
+</html>
