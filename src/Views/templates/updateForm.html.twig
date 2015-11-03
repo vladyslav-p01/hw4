@@ -16,13 +16,13 @@
                 {% endfor %}
             </select>
             <label for="deviceModel">Device model</label>
-            <input type="text" name="deviceModel" id="deviceModel" required>
+            <input type="text" name="deviceModel" id="deviceModel" required value="{{ updateDevice.model }}">
             <label for="screenSize">screenSize</label>
-            <input type="number" name="screenSize" id="screenSize" required>
+            <input type="number" name="screenSize" id="screenSize" required  value="{{ updateDevice.screenSize }}">
             <input type="submit" value="Send">
         </fieldset>
         <input type="hidden" name="controller" value="device">
-        <input type="hidden" name="action" value="addDevice">
+        <input type="hidden" name="action" value="updateDevice">
     </form>
 
 </body>

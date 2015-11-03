@@ -24,7 +24,7 @@ class ConnectDb implements ConnectorInterface
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         );
-        //$this->pdo = new \PDO('mysql:host=localhost;dbname=' . $databasename . ';charset=UTF8', $user, $pass);
+
         $pdo = new PDO($dsn, $paramDb['user'], $paramDb['password']);
         $this->pdo = $pdo;
     }

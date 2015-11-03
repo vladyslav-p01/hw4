@@ -13,10 +13,12 @@ $controllerName = 'Controllers\\' . ucfirst($controllerName) . 'Controller';
 $controller = new $controllerName($db);
 
 $actionName = isset($_GET['action']) ? $_GET['action'] : 'index';
-$actionName = ucfirst($actionName) . 'Action';
+$actionName = $actionName . 'Action';
 
 $response = $controller->$actionName();
 
 echo $response;
+
+
 
 

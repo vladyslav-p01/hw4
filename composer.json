@@ -15,10 +15,10 @@
             "Twig\\": "src/Twig"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.5.0",
         "ext-mysqlnd": "*",
-        "twig/twig": "1.23.0"
+        "twig/twig": "^2.0@dev"
     }
 }

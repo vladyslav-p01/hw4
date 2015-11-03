@@ -47,11 +47,30 @@ class DeviceController {
 
     public function updateDeviceAction()
     {
-        if (isset($_GET['id'])) {
-            $this->model->update($_GET['id'],$_GET['']);
+        if (isset($_GET['deviceModel'])) {
+            $this->model->update($_GET['id'],
+                ['vendor' => $_GET['vendor'],
+                    'deviceModel' => $_GET['deviceModel'],
+                    'screenSize' => $_GET['screenSize']
+                ]);
             return $this->indexAction();
         }
-        return TwigAccess::twigRender('updateForm.html.twig');
+        $allVendors = $this->vendorModel->getAll();
+        $updateDevice = $this->model->find($_GET['id']);
+        return TwigAccess::twigRender('updateForm.html.twig',['vendors' => $allVendors,
+            'updateDevice' => $updateDevice]);
+    }
+
+    public function deleteDeviceAction()
+    {
+        if (isset($_GET['id'])) {
+            return TwigAccess::twigRender('confirmDelete.html.twig', ['id' => $_GET['id']]);
         }
+
+        $this->model->delete($_GET['confirmedId']);
+        return $this->indexAction();
+
+
+    }
 
 }
