@@ -12,7 +12,11 @@
             <label for="vendor">vendor</label>
             <select id="vendor" name="vendor">
                 {% for vendor in vendors %}
+                    {% if (vendor.id==updateDevice.id_vendor) %}
+                        <option value="{{ vendor.id }}" selected> {{ vendor.name }}</option>
+                    {% else %}
                         <option value="{{ vendor.id }}"> {{ vendor.name }}</option>
+                    {% endif %}
                 {% endfor %}
             </select>
             <label for="deviceModel">Device model</label>
@@ -21,6 +25,7 @@
             <input type="number" name="screenSize" id="screenSize" required  value="{{ updateDevice.screenSize }}">
             <input type="submit" value="Send">
         </fieldset>
+        <input type="hidden" name="id" value="{{ updateDevice.id }}">
         <input type="hidden" name="controller" value="device">
         <input type="hidden" name="action" value="updateDevice">
     </form>
