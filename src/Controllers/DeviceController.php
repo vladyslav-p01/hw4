@@ -27,7 +27,7 @@ class DeviceController {
     public function indexAction()
     {
         $allDevices = $this->model->getAll();
-        return TwigAccess::twigRender('TableDevices.html.twig',
+         return TwigAccess::twigRender('TableDevices.html.twig',
             ['devices' => $allDevices]);
     }
 
@@ -49,7 +49,7 @@ class DeviceController {
     {
         if (isset($_GET['deviceModel'])) {
             $this->model->update($_GET['id'],
-                ['vendor' => $_GET['vendor'],
+                ['id_vendor' => $_GET['vendor'],
                     'deviceModel' => $_GET['deviceModel'],
                     'screenSize' => $_GET['screenSize']
                 ]);

@@ -43,7 +43,7 @@ class DeviceManager
              WHERE id = :id
              ");
         $statement->bindValue(':id_vendor',$deviceData['id_vendor']);
-        $statement->bindValue(':model',$deviceData['model']);
+        $statement->bindValue(':model',$deviceData['deviceModel']);
         $statement->bindValue(':screenSize',$deviceData['screenSize']);
         $statement->bindValue(':id',$id);
         return $statement->execute();
@@ -78,7 +78,7 @@ class DeviceManager
     public function getAll($limit = 50)
     {
         $statement = $this->connectDb->connect()->prepare("
-              SELECT device.id model, screenSize, name FROM device, vendor
+              SELECT device.id, model, screenSize, name FROM device, vendor
               WHERE device.id_vendor=vendor.id
             ");
         $statement-> bindValue(':limit', $limit, \PDO::PARAM_INT);
