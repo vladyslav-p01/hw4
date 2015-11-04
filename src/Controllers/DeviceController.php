@@ -64,7 +64,11 @@ class DeviceController {
     public function deleteDeviceAction()
     {
         if (isset($_GET['id'])) {
-            return TwigAccess::twigRender('confirmDelete.html.twig', ['id' => $_GET['id']]);
+            return TwigAccess::twigRender('confirmDelete.html.twig',
+                [
+                    'id' => $_GET['id'],
+                    'action' => 'deleteDevice',
+                    'controller' => 'device']);
         }
 
         $this->model->delete($_GET['confirmedId']);

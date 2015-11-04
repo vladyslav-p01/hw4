@@ -8,35 +8,54 @@
 
 namespace Controllers;
 
-
-use Layer\Manager\DeviceManager;
+use Controllers\DeviceController;
+use Layer\Manager\VendorManager;
 use Twig\TwigAccess;
 
-class DeviceController {
+class VendorController {
 
     private $model;
-
     public function __construct($connectDb)
     {
-        $this->model = new DeviceManager($connectDb);
+        $this->model = new VendorManager($connectDb);
     }
 
     public function indexAction()
     {
-        $allDevices=$this->model->getAll();
-        return TwigAccess::twigRender('TableDevices.html.twig', [ 'devices' => $allDevices ]);
+        $allVendors = $this->model->getAll();
+        return TwigAccess::twigRender('TableVendors.html.twig',
+            ['vendors' => $allVendors]);
     }
 
-    public function addDeviceAction()
+    public function addVendorAction()
     {
-        if (isset($_GET['deviceModel'])) {
-            $this->model->insert([
-                'deviceModel' => $_GET['deviceModel'],
-                'screenSize' => $_GET['screenSize']
-            ]);
+        if (isset($_GET['nameVendor'])) {
+            $this->model->insert($_GET['nameVendor']);
             return $this->indexAction();
         }
-        return TwigAccess::twigRender('addForm.html.twig');
+        return TwigAccess::twigRender('VendorForm.html.twig', ['action' => 'addVendor']);
     }
+
+    public function updateVendorAction()
+    {
+        if (isset($_GET['idVendorToDb'])) {
+            $this->model->update($_GET['idVendorToDb'],$_GET['nameVendor']);
+            return $this->indexAction();
+        }
+        $vendor = $this->model->find($_GET['id']);
+        return TwigAccess::twigRender('VendorForm.html.twig',
+            ['action' => 'updateVendor', 'vendor' => $vendor]);
+    }
+
+    public function deleteVendorAction()
+    {
+        if (isset($_GET['confirmedId'])) {
+            $this->model->delete($_GET['confirmedId']);
+            return $this->indexAction();
+        }
+        return TwigAccess::twigRender('confirmDelete.html.twig',
+            ['controller' =>'vendor', 'action' => 'deleteVendor', 'id' => $_GET['id']]);
+    }
+
 
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <table border="1" width="100%">
+        <caption>Devices</caption>
+        <tr>
+            <th>Vendor</th>
+            <th>Operations</th>
+        </tr>
+        {% for vendor in vendors %}
+            <tr>
+                <td>{{ vendor.name }}</td>
+                <td><a href="index.php?controller=vendor&action=updateVendor&id={{ vendor.id }}">Update</a>
+                    <a href="index.php?controller=vendor&action=deleteVendor&
+                        id={{ vendor.id }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+<a href="index.php?controller=vendor&action=addVendor">New vendor</a>
+<a href="/"> Main</a>
+</body>
+</html>
