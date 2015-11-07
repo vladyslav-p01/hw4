@@ -23,7 +23,7 @@ class VendorController {
     public function indexAction()
     {
         $allVendors = $this->model->getAll();
-        return TwigAccess::twigRender('TableVendors.html.twig',
+        return TwigAccess::twigRender('/Vendor/TableVendors.html.twig',
             ['vendors' => $allVendors]);
     }
 
@@ -33,7 +33,7 @@ class VendorController {
             $this->model->insert($_GET['nameVendor']);
             return $this->indexAction();
         }
-        return TwigAccess::twigRender('VendorForm.html.twig', ['action' => 'addVendor']);
+        return TwigAccess::twigRender('/Vendor/VendorForm.html.twig', ['action' => 'addVendor']);
     }
 
     public function updateVendorAction()
@@ -43,7 +43,7 @@ class VendorController {
             return $this->indexAction();
         }
         $vendor = $this->model->find($_GET['id']);
-        return TwigAccess::twigRender('VendorForm.html.twig',
+        return TwigAccess::twigRender('/Vendor/VendorForm.html.twig',
             ['action' => 'updateVendor', 'vendor' => $vendor]);
     }
 

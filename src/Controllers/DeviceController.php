@@ -27,7 +27,7 @@ class DeviceController {
     public function indexAction()
     {
         $allDevices = $this->model->getAll();
-         return TwigAccess::twigRender('TableDevices.html.twig',
+         return TwigAccess::twigRender('/Device/TableDevices.html.twig',
             ['devices' => $allDevices]);
     }
 
@@ -42,7 +42,7 @@ class DeviceController {
             return $this->indexAction();
         }
         $allVendors = $this->vendorModel->getAll();
-        return TwigAccess::twigRender('addForm.html.twig', ['vendors' => $allVendors]);
+        return TwigAccess::twigRender('/Device/addForm.html.twig', ['vendors' => $allVendors]);
     }
 
     public function updateDeviceAction()
@@ -57,7 +57,7 @@ class DeviceController {
         }
         $allVendors = $this->vendorModel->getAll();
         $updateDevice = $this->model->find($_GET['id']);
-        return TwigAccess::twigRender('updateForm.html.twig',['vendors' => $allVendors,
+        return TwigAccess::twigRender('/Device/updateForm.html.twig',['vendors' => $allVendors,
             'updateDevice' => $updateDevice]);
     }
 
