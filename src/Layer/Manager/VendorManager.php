@@ -6,7 +6,7 @@ namespace Layer\Manager;
  * Class AbstractManager
  * @package Layer\Manager
  */
-class VendorManager
+class VendorManager implements ManagerInterface
 {
     private $connectDb;
 

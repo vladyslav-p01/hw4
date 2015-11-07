@@ -6,7 +6,7 @@ namespace Layer\Manager;
  * Class AbstractManager
  * @package Layer\Manager
  */
-class DeviceManager
+class DeviceManager implements ManagerInterface
 {
     private $connectDb;
 

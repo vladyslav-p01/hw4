@@ -9,7 +9,8 @@
 namespace Layer\Manager;
 
 
-class DeliveryManager {
+class DeliveryManager implements ManagerInterface
+{
     private $connectDb;
 
     public function __construct($connectDb)

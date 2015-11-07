@@ -28,7 +28,7 @@ interface ManagerInterface
      * @param $entity
      * @return mixed
      */
-    public function remove($entity);
+    public function delete($entity);
 
     /**
      * Search entity data in the DB by Id
@@ -36,20 +36,12 @@ interface ManagerInterface
      * @param $id
      * @return mixed
      */
-    public function find($entityName, $id);
+    public function find($id);
 
     /**
      * Search all entity data in the DB
      * @param $entityName
      * @return array
      */
-    public function findAll($entityName);
-
-    /**
-     * Search all entity data in the DB like $criteria rules
-     * @param $entityName
-     * @param array $criteria
-     * @return mixed
-     */
-    public function findBy($entityName, $criteria = []);
+    public function getAll();
 }
