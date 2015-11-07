@@ -21,7 +21,7 @@ interface ManagerInterface
      * @param $entity
      * @return mixed
      */
-    public function update($entity);
+    public function update($id, $name);
 
     /**
      * Delete entity data from the DB
