@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form>
+    <label for="vendor">Suplier</label>
+    <select id="vendor" name="deliveryData[suplier]">
+        {% for vendor in vendors %}
+            <option value="{{ vendor.id }}"> {{ vendor.name }}</option>
+        {% endfor %}
+    </select>
+    <label for="product">Product</label>
+    <select name="deliveryData[product]" id="product">
+        {% for product in products %}
+            <option value="{{ product.id }}">{{ product.model}}</option>
+        {% endfor %}
+    </select>
+
+    <input type="hidden" name="controller" value="delivery">
+    <input type="hidden" name="action" value="addDelivery">
+    <input type="submit">
+
+</form>
+</body>
+</html>
