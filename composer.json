@@ -10,12 +10,15 @@
     ],
     "autoload": {
         "psr-4": {
-            "Layer\\": "src/Layer/"
+            "Layer\\": "src/Layer/",
+            "Controllers\\": "src/Controllers",
+            "Twig\\": "src/Twig"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.5.0",
-        "ext-mysqlnd": "*"
+        "ext-mysqlnd": "*",
+        "twig/twig": "^2.0@dev"
     }
 }

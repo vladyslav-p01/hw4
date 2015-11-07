@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <form method="get" action="index.php">
+        <a href="index.php">
+            <input type="button" value="Cancel" />
+        </a>
+        <input type="submit" value="Delete">
+
+        <input type="hidden" name="confirmedId" value="{{ id }}">
+        <input type="hidden" name="controller" value="{{ controller }}">
+        <input type="hidden" name="action" value="{{ action }}">
+    </form>
+
+</body>
+</html>

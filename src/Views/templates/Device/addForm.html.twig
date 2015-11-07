@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <form method="get" action="index.php">
+        <fieldset>
+            <legend align="center">Enter information about the device</legend>
+            <label for="vendor">vendor</label>
+            <select id="vendor" name="vendor">
+                {% for vendor in vendors %}
+                        <option value="{{ vendor.id }}"> {{ vendor.name }}</option>
+                {% endfor %}
+            </select>
+            <label for="deviceModel">Device model</label>
+            <input type="text" name="deviceModel" id="deviceModel" required>
+            <label for="screenSize">screenSize</label>
+            <input type="number" name="screenSize" id="screenSize" required>
+            <input type="submit" value="Send">
+        </fieldset>
+        <input type="hidden" name="controller" value="device">
+        <input type="hidden" name="action" value="addDevice">
+    </form>
+
+</body>
+</html>

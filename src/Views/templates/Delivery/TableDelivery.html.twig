@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<table border="1" width="100%">
+    <caption>Deliveries</caption>
+    <tr>
+        <th>Supplier</th>
+        <th>Product</th>
+        <th>ScreenSize</th>
+        <th>Operations</th>
+    </tr>
+    {% for Delivery in allDelivery %}
+        <tr>
+            <td>{{ Delivery.name }}</td>
+            <td>{{ Delivery.model }}</td>
+            <td>{{ Delivery.screenSize }}</td>
+            <td><a href="index.php?controller=delivery&action=updateDelivery&id={{ Delivery.id }}">Update</a>
+                <a href="index.php?controller=delivery&action=deleteDelivery&
+                    id={{ Delivery.id }}">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<a href="index.php?controller=delivery&action=addDelivery">New delivery</a>
+{#<a href="index.php?controller=vendor&action=index">Vendors</a>#}
+<a href="/"> Main</a>
+<div>    Note: In this case vendors are suppliers</div>
+</body>
+</html>

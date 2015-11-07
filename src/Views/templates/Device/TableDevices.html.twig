@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+
+        <table border="1" width="100%">
+            <caption>Devices</caption>
+            <tr>
+                <th>Vendor</th>
+                <th>Model</th>
+                <th>ScreenSize</th>
+                <th>Operations</th>
+            </tr>
+            {% for device in devices %}
+                <tr>
+                    <td>{{ device.name }}</td>
+                    <td>{{ device.model }}</td>
+                    <td>{{ device.screenSize }}</td>
+                    <td><a href="index.php?controller=device&action=updateDevice&id={{ device.id }}">Update</a>
+                    <a href="index.php?controller=device&action=deleteDevice&
+                    id={{ device.id }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    <a href="index.php?controller=device&action=addDevice">New device</a>
+    <a href="index.php?controller=vendor">Vendors</a>
+    <a href="index.php?controller=delivery">Deliveries</a>
+    <a href="/"> Main</a>
+    </body>
+</html>
